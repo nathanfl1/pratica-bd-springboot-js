@@ -46,3 +46,8 @@ botaoConsultar.addEventListener("click", function () {
             }
         })
 })
+
+let botaoVoltar = document.getElementById("voltar")
+botaoVoltar.addEventListener("click", function () {
+    location.href = "/"
+})

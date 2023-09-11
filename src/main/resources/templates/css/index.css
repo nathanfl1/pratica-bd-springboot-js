@@ -25,3 +25,11 @@ button{
     margin: 1%;
 }
 
+#relatorio{
+    text-align: left;
+}
+#teste {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

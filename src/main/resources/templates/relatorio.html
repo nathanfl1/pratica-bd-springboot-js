@@ -1,17 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/index.css">
     <title>Relatório</title>
 </head>
+
 <body>
 
     <h1>Relatório</h1>
+    <div id="teste">
+        <div id="relatorio">
+            <p class="paragrafos"></p>
+            <p class="paragrafos"></p>
+            <p class="paragrafos"></p>
+            <p class="paragrafos"></p>
+            <p class="paragrafos"></p>
+            <p class="paragrafos"></p>
+        </div>
+    </div>
     <div class="centralizar">
-    <p>Clique <a href="/lista">aqui</a> para ver a lista de pacientes</p>
-</div>
-<script src="js/relatorio.js"></script>
+        <p id="mensagemErro" hidden>Nenhum paciente foi cadastrado. Impossível gerar o relatório.</p>
+        <p>Clique <a href="/lista">aqui</a> para ver a lista de pacientes</p>
+        <button id="voltar">Voltar</button>
+    </div>
+    <script src="js/relatorio.js"></script>
 </body>
+
 </html>

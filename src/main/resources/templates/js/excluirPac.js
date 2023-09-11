@@ -20,3 +20,8 @@ botaoExcluir.addEventListener("click", function () {
         document.getElementById("mensagemSucesso").hidden = false;
     })
 })
+let botaoVoltar = document.getElementById("voltar")
+console.log(botaoVoltar)
+botaoVoltar.addEventListener("click", function () {
+    location.href = "/"
+})
