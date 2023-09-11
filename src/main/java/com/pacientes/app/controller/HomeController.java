@@ -10,31 +10,36 @@ public class HomeController {
 @GetMapping("/")
     public String index()
     {
-        return "index.html";
+        return "/html/index.html";
     }
     @GetMapping("/cadastrar")
     public String cadastrar()
     {
-        return "/addPac.html";
+        return "/html/addPac.html";
     }
     @GetMapping("/lista")
     public String lista()
     {
-        return "/listPac.html";
+        return "/html/listPac.html";
     }
     @GetMapping("/consultar")
     public String consultar()
     {
-        return "/consultarPac.html";
+        return "/html/consultarPac.html";
     }
     @GetMapping("/relatorio")
     public String relatorio()
     {
-        return "/relatorio.html";
+        return "/html/relatorio.html";
     }
     @GetMapping("/excluir")
     public String excluir()
     {
-        return "/excluirPac.html";
+        return "/html/excluirPac.html";
+    }
+    @GetMapping("/alterar")
+    public String alterar()
+    {
+        return "/html/alterarPac.html";
     }
 }   

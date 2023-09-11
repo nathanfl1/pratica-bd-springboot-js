@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/alterar.css">
+    <title>Alterar Paciente</title>
+</head>
+
+<body>
+    <h1>Alterar Paciente</h1>
+    <p id="msgAlterar" class="centralizar">Não é necessário preencher todos os campos. Preencha apenas os campos que for
+        alterar</p>
+    <div>
+        <label for="inputAlterar">Digite o código do paciente a ser alterado:</label>
+        <input class="inputs" id="inputAlterar" type="number">
+        <br>
+        <label for="nome">Nome:</label>
+        <input class="inputs" id="nome" type="text">
+
+        <label for="idade">Idade:</label>
+        <input class="inputs" id="idade" type="number">
+
+        <label for="genero">Gênero:</label>
+        <select class="inputs" id="genero">
+            <option value="">Selecione</option>
+            <option value="M"> Masculino</option>
+            <option value="F">Feminino</option>
+            <option value="O">Outro</option>
+        </select>
+
+        <label for="altura">Altura:</label>
+        <input class="inputs" id="altura" type="number">
+
+        <label for="peso">Peso:</label>
+        <input class="inputs" id="peso" type="number">
+    </div>
+    <div class="centralizar">
+        <p>Clique <a href="/lista">aqui</a> para ver a lista de pacientes</p>
+    </div>
+    <div class="centralizar">
+        <p hidden id="mensagemErro">O código não pode estar vazio!</p>
+        <p hidden id="mensagemErro2">Preencha algum dos campos!</p>
+        <p hidden id="mensagemErro3">Não foi possível alterar. Verifique o nome e código</p>
+        <p hidden id="mensagemErro4">Houve um erro no servidor!</p>
+        <p hidden id="mensagemSucesso">Paciente alterado com sucesso!</p>
+    </div>
+    <div class="centralizar">
+        <button id="enviar">Enviar</button>
+    </div>
+    <script src="js/alterarPac.js"></script>
+</body>
+
+</html>
