@@ -31,4 +31,9 @@ public class JsController {
     {
         return "/js/excluirPac.js";
     }
+    @GetMapping("/js/alterarPac.js")
+    public String alterarJs()
+    {
+        return "js/alterarPac.js";
+    }
 }

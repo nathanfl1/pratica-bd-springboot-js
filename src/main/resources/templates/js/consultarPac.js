@@ -11,14 +11,7 @@ botaoConsultar.addEventListener("click", function () {
         tabela.rows[index].remove()
 
     let mensagemErro = document.getElementById("mensagemErro");
-    /*
-     fetch("http://localhost:8080/api/lista", {
-        method: "POST",
-        body: JSON.stringify({
-            arg: selectOption.options[selectOption.selectedIndex].value,
-        })
-    })
-    */
+    
     fetch("http://localhost:8080/api/pacientes", {
         method: "POST",
         body: JSON.stringify({
@@ -27,7 +20,6 @@ botaoConsultar.addEventListener("click", function () {
     }).then((response) => response.json())
         .then((response) => {
             let resultado = JSON.parse(JSON.stringify(response))
-            console.log(resultado)
             if (resultado.codigo == 0) {
                 mensagemErro.hidden = false;
                 tabela.hidden = true;

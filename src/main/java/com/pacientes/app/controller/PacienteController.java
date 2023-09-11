@@ -134,18 +134,97 @@ public class PacienteController {
       }
     });
   }
+
   @PostMapping("/excluir")
-  public ResponseEntity<String> excluir(@RequestBody String jsonStr){
+  public ResponseEntity<String> excluir(@RequestBody String jsonStr) {
     try {
       // manipulação de json. monke
       JSONParser parser = new JSONParser(jsonStr);
       LinkedHashMap<String, Object> json = parser.object();
       template.execute("DELETE FROM paciente p WHERE p.codigo = " + json.get("codigo"));
       return new ResponseEntity<String>("Paciente excluído!", HttpStatus.OK);
-    }catch(Exception e)
-    {
+    } catch (Exception e) {
       e.printStackTrace();
       return new ResponseEntity<String>("Erro no servidor!", HttpStatus.INTERNAL_SERVER_ERROR);
     }
+  }
+
+  @PostMapping("/alterar")
+  public ResponseEntity<String> alterar(@RequestBody String jsonStr) {
+    try {
+      // manipulação de json. monke
+      JSONParser parser = new JSONParser(jsonStr);
+      LinkedHashMap<String, Object> json = parser.object();
+
+      if (pacienteNaoEncontrado(Integer.valueOf((String) json.get("codigo"))))
+        return new ResponseEntity<String>("Paciente não encontrado!", HttpStatus.BAD_REQUEST);
+      if (pacienteJaExiste((String) json.get("nome"))) {
+        return new ResponseEntity<String>("Nome já existe!", HttpStatus.BAD_REQUEST);
+      }
+      String query = query(json);
+      template.execute(query);
+      return new ResponseEntity<String>("Alterado!", HttpStatus.OK);
+    } catch (Exception e) {
+      e.printStackTrace();
+      return new ResponseEntity<String>("Erro no servidor!", HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+  }
+
+  public boolean pacienteNaoEncontrado(int codigo) {
+    for (Paciente p : listaPacientes()) {
+      if (p.getCodigo() == codigo) {
+        return false;
+      }
+    }
+    return true;
+  }
+  public boolean pacienteJaExiste(String nome) {
+    for (Paciente p : listaPacientes()) {
+      if (p.getNome().equals(nome))
+        return true;
+    }
+    return false;
+  }
+  public String query(LinkedHashMap<String, Object> dados) {
+    String sql = "UPDATE paciente SET";
+    int count = 0;
+    String nome = (String) dados.get("nome");
+    if (nome != null) {
+      sql += " nome = '" + nome + "'";
+      count++;
+    }
+
+    String genero = (String) dados.get("genero");
+    if (genero != null) {
+      if (count > 0)
+        sql += ",";
+      sql += " genero = '" + genero + "'";
+      count++;
+    }
+    String idadeS = (String) dados.get("idade");
+    if(idadeS != null)
+    {
+      if (count > 0)
+        sql += ",";
+      sql += " idade = " + Integer.valueOf(idadeS);
+      count++;
+    }
+    String alturaS = (String) dados.get("altura");
+    if (alturaS != null) {
+      if (count > 0)
+        sql += ",";
+      sql += " altura = " + Double.valueOf(alturaS);
+      count++;
+    }
+
+    String pesoS = (String) dados.get("peso");
+    if (pesoS != null) {
+      if (count > 0)
+        sql += ",";
+      sql += " peso = " + Double.valueOf(pesoS);
+      count++;
+    }
+    sql += " WHERE codigo = " + Integer.valueOf((String) dados.get("codigo"));
+    return sql;
   }
 }
