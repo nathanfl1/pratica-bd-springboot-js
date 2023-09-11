@@ -1,0 +1,27 @@
+.centralizar{
+    /* margin: auto;
+    width: 50%;
+    padding: 10px;
+    border: 1px solid; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+body{
+    font-size: x-large;
+    font-family: 'Verdana';
+}
+h1{
+    text-align: center;
+}
+input, select{
+    margin-bottom: 5%;
+
+}
+button{
+    font-size: x-large;
+    margin: 1%;
+}
+

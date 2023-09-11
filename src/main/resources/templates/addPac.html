@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Cadastrar Paciente</h1>
+    <div class="centralizar" id="formulario">
+        <form>
+            <label for="nome">Nome:</label>
+            <input class="inputs" id="nome" type="text">
+            <br>
+            <label for="idade">Idade:</label>
+            <input class="inputs" id="idade" type="number">
+            <br>
+            <label for="genero">Gênero:</label>
+            <select class="inputs" id="genero">
+                <option value="">Selecione</option>
+                <option value="M"> Masculino</option>
+                <option value="F">Feminino</option>
+                <option value="O">Outro</option>
+            </select>
+            <br>
+            <label for="altura">Altura:</label>
+            <input class="inputs" id="altura" type="number">
+            <br>
+            <label for="peso">Peso:</label>
+            <input class="inputs" id="peso" type="number">
+
+        </form>
+
+    </div>
+    <div class="centralizar">
+        <button id="enviar">Enviar</button>
+        <button id="voltar">Voltar</button>
+    </div>
+    <div class="centralizar" id="mensagens">
+        <p id="mensagemSucesso" hidden>Paciente cadastrado com sucesso!</p>
+    </div>
+</body>
+<script src="js/addPac.js"></script>
+</body>
+
+</html>

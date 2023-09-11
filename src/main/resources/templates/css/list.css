@@ -1,0 +1,17 @@
+table {
+    border-collapse: collapse;
+    margin: auto;
+    width: 50%;
+  }
+  
+  th, td {
+    border: 1px solid black;
+    text-align: center;
+}
+body{
+    font-size: x-large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+select{
+  font-size: x-large;
+}

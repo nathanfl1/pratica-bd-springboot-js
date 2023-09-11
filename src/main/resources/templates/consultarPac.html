@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/list.css">
+    <title>Consultar Paciente</title>
+</head>
+<body>
+    <div>
+        <label for="inputConsultar">Digite o código do paciente:</label>
+        <input id="inputConsultar" type="number">
+        <button id="botaoConsultar">Consultar</button>
+    </div>
+    <div id="divTabela">
+        <h1 hidden id="result">Resultado:</h1>
+        <p hidden id="mensagemErro">Não foi encontrado nenhum paciente com este código!</p>
+        <table hidden id="tabela">
+            <tr>
+                <th>Código</th>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Gênero</th>
+                <th>Altura</th>
+                <th>Peso</th>
+            </tr>
+        </table>
+    </div>
+    <script src="js/consultarPac.js"></script>
+</body>
+</html>

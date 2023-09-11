@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/list.css">
+
+    <title>Lista de Pacientes</title>
+</head>
+
+<body>
+    <h1>Lista de Pacientes</h1>
+    <label for="selecao">Ordenar por:</label>
+    <select id="selecao">
+        <option disabled selected>Selecione</option>
+        <option value="codigo">Código</option>
+        <option value="idade">Idade</option>
+    </select>
+
+    <div id="principal">
+        <table hidden id="tabela">
+            <tr>
+                <th>Código</th>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Gênero</th>
+                <th>Altura</th>
+                <th>Peso</th>
+            </tr>
+        </table>
+    </div>
+    <div class="centralizar">
+        <button id="voltar">Voltar</button>
+    </div>
+    <script src="js/list.js"></script>
+</body>
+
+</html>
