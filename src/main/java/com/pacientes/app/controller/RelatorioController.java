@@ -35,7 +35,7 @@ public class RelatorioController {
                             }
                         }));
         i.setMulheresMaisBaixas(template.query(
-                "SELECT p.nome FROM paciente p WHERE p.altura = (SELECT MIN(p2.altura) FROM paciente p2 WHERE p2.genero = 'F')",
+                "SELECT p.nome FROM paciente p WHERE p.altura = (SELECT MIN(p2.altura) FROM paciente p2 WHERE p2.genero = 'Feminino')",
                 new RowMapper<String>() {
                     @Override
                     public String mapRow(ResultSet rs, int rownumber) throws SQLException {
@@ -43,9 +43,9 @@ public class RelatorioController {
                         return resultado;
                     }
                 }));
-        i.setMedia(template.queryForObject("SELECT AVG(p.idade) FROM paciente p WHERE p.genero = 'M'", Double.class));
+        i.setMedia(template.queryForObject("SELECT AVG(p.idade) FROM paciente p WHERE p.genero = 'Masculino'", Double.class));
         i.setMulheres(template.queryForObject(
-                "SELECT count(*) FROM paciente p WHERE p.altura <= 1.70 AND p.altura >= 1.60 AND p.peso > 70 AND p.genero = 'F'",
+                "SELECT count(*) FROM paciente p WHERE p.altura <= 1.70 AND p.altura >= 1.60 AND p.peso > 70 AND p.genero = 'Feminino'",
                 Integer.class));
         i.setPessoas(template.queryForObject("SELECT count(*) FROM paciente p WHERE p.idade >= 18 AND p.idade <= 25",
                 Integer.class));
